@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IGNITE - Wear Your Fire</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #080808;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .logo span {
+            color: red;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+
+        /* HOME */
+
+        #home {
+            height: 560px;
+            background-image: url("ignitetemplate.png");
+            background-size: 100% auto;
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* DARK OVERLAY */
+
+        #home::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        /* GRADIENT FADE */
+
+        #home::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 190px;
+            background: linear-gradient(
+                transparent,
+                #0b0b0b
+            );
+        }
+
+        /* CENTER IGNITE */
+
+        .hero {
+            position: absolute;
+            z-index: 2;
+            top: 390px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            font-weight: bold;
+            font-style: italic;
+            letter-spacing: 4px;
+        }
+
+        .hero h1 span {
+            color: red;
+        }
+
+        .hero p {
+            font-size: 18px;
+            letter-spacing: 7px;
+            margin-top: 5px;
+        }
+
+
+        /* SECTIONS */
+
+        section {
+            padding: 70px 7%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: red;
+            margin: 10px auto;
+        }
+
+
+        /* PRODUCTS */
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            width: 270px;
+            background: #151515;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            border-color: red;
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 15px 0 8px;
+        }
+
+        .price {
+            color: red;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 9px 20px;
+            margin-top: 5px;
+            color: white;
+            border: 1px solid red;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: red;
+        }
+
+
+        /* ABOUT */
+
+        #about {
+            background: #151515;
+            text-align: center;
+        }
+
+        #about p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            color: #bbb;
+        }
+
+
+        /* CONTACT */
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            background: #151515;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        textarea {
+            height: 120px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px;
+            color: #888;
+        }
+
+        footer h3 {
+            color: white;
+            font-size: 25px;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            #home {
+                height: 450px;
+            }
+
+            .hero {
+                top: 310px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 13px;
+                letter-spacing: 5px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#home" class="logo">
+            IGN<span>I</span>TE
+        </a>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section id="home">
+
+        <div class="hero">
+
+            <h1>IGN<span>I</span>TE</h1>
+
+            <p>WEAR YOUR FIRE</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section id="products">
+
+        <h2>Our Products</h2>
+
+        <div class="products">
+
+            <div class="product">
+
+                <img src="ignitetshirtgpt.png">
+
+                <h3>IGNITE T-Shirt</h3>
+
+                <p class="price">₹1,999 - ₹4,999</p>
+
+                <a href="#" class="btn">BUY NOW</a>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="igniteshoe.png">
+
+                <h3>IGNITE Shoes</h3>
+
+                <p class="price">₹6,999 - ₹9,999</p>
+
+                <a href="#" class="btn">BUY NOW</a>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="ignitecap.png">
+
+                <h3>IGNITE Cap</h3>
+
+                <p class="price">₹999 - ₹1,999</p>
+
+                <a href="#" class="btn">BUY NOW</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <section id="about">
+
+        <h2>About IGNITE</h2>
+
+        <p>
+            IGNITE is a modern fashion and lifestyle brand
+            focused on clothing, footwear and accessories.
+            We create stylish products for people who want
+            to express their own identity.
+
+            <br><br>
+
+            From premium T-shirts and shoes to stylish caps,
+            IGNITE combines comfort, confidence and style.
+
+            <br><br>
+
+            <b>WEAR YOUR FIRE.</b>
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT US -->
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <form>
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea placeholder="Your Message" required></textarea>
+
+            <button type="submit">SEND MESSAGE</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>IGNITE</h3>
+
+        <p>WEAR YOUR FIRE</p>
+
+        <p>© 2026 IGNITE. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+</html>
